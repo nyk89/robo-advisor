@@ -21,12 +21,14 @@ last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 # print(response.status_code) #200
 # print(response.text)
 
+import datetime
+now = datetime.datetime.now()
 
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
-print("REQUEST AT: 2018-02-20 02:00pm")
+print("REQUEST AT:", now.strftime("%Y-%m-%d %H:%M %p")) #can I change this from 24 hour clock?
 print("-------------------------")
 print(f"LATEST DAY: {last_refreshed}")
 print("LATEST CLOSE: $100,000.00")
