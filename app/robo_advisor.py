@@ -42,12 +42,9 @@ for date in dates:
 recent_high = max(high_prices)
 recent_low = min(low_prices)
 
-# print(type(response)) # <class 'requests.models.Response'>
-# print(response.status_code) #200
-# print(response.text)
 
-
-
+import csv
+import json
 import datetime
 now = datetime.datetime.now()
 
@@ -68,5 +65,18 @@ print("-------------------------")
 print("RECOMMENDATION: BUY!")
 print("RECOMMENDATION REASON: TODO")
 print("-------------------------")
+print("WRITING DATA TO CSV...")
+print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+
+csv_file_path = "data/prices.csv" # a relative filepath
+
+with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
+    writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
+    writer.writeheader() # uses fieldnames set above
+    writer.writerow({"city": "New York", "name": "Yankees"})
+    writer.writerow({"city": "New York", "name": "Mets"})
+    writer.writerow({"city": "Boston", "name": "Red Sox"})
+    writer.writerow({"city": "New Haven", "name": "Ravens"})
