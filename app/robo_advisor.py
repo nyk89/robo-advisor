@@ -28,6 +28,9 @@ latest_close = parsed_response["Time Series (Daily)"]["2020-06-12"]["4. close"]
 import datetime
 now = datetime.datetime.now()
 
+def to_usd(my_price):
+    return f"${my_price:,.2f}" #> $12,000.71
+
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
 print("-------------------------")
@@ -35,7 +38,7 @@ print("REQUESTING STOCK MARKET DATA...")
 print("REQUEST AT:", now.strftime("%Y-%m-%d %H:%M %p")) #can I change this from 24 hour clock?
 print("-------------------------")
 print(f"LATEST DAY: {last_refreshed}")
-print(f"LATEST CLOSE: {latest_close}")
+print(f"LATEST CLOSE: {to_usd(float((latest_close)))}")
 print("RECENT HIGH: $101,000.00")
 print("RECENT LOW: $99,000.00")
 print("-------------------------")
