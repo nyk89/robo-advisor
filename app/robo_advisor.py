@@ -4,6 +4,9 @@ import os
 import csv
 import datetime
 from dotenv import load_dotenv
+import plotly
+import plotly.graph_objs as go
+import pandas
 
 load_dotenv() #> loads contents of the .env file into the script's environment
 
@@ -13,6 +16,7 @@ def to_usd(my_price):
 api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
 
 #input("ENTER TICKER HERE: ")
+
 symbol = input("ENTER TICKER HERE: ")
 
 request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}"
@@ -25,7 +29,7 @@ last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 
 tsd = parsed_response["Time Series (Daily)"]
 
-dates = list(tsd.keys()) # to do make sorted list so most recent date is first
+dates = list(tsd.keys()) 
 
 latest_day = dates[0]
 
@@ -65,15 +69,15 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
         "volume": daily_prices["5. volume"]
     })
 
-if float(latest_close) < float(recent_low):
+if float(latest_close) <= float(recent_low):
     recommendation = "BUY IT WARREN"
     reason = "EQUITY SALE ON ISLE FIVE"
 
-if float(latest_close) > float(recent_high):
+if float(latest_close) >= float(recent_high):
     recommendation = "SELL IT MR. BUFFETT"
     reason = "UNPRECIDENTED HIGHS, CASH IN"
 
-if float(recent_low) <= float(latest_close) <= float(recent_high):
+if float(recent_low) < float(latest_close) < float(recent_high):
     recommendation = "HOLD IT MR. BUFFETT"
     reason = "NOTHING INTERESTING TO SEE HERE, KEEP HOLDING"
 
@@ -95,3 +99,11 @@ print(f"WRITING DATA TO CSV: {csv_file_path}")
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+x = (dates)
+y = (high_prices)
+
+plotly.offline.plot({
+    "data": [go.Scatter(x = x, y = y)],
+    "layout": go.Layout(title=f"Daily Highs for {symbol}")
+}, auto_open=True)
