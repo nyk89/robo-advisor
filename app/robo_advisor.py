@@ -6,7 +6,6 @@ import datetime
 from dotenv import load_dotenv
 import plotly
 import plotly.graph_objs as go
-import pandas
 
 load_dotenv() #> loads contents of the .env file into the script's environment
 
