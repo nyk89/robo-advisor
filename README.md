@@ -20,7 +20,7 @@ Use Anaconda to create and activate a new virtual environment, perhaps called "s
 
 ```sh
 conda create -n stocks-env python=3.7 # (first time only)
-conda activate shopping-env
+conda activate stocks-env
 ```
 ## Use
 Run the program by typing the following into your terminal:
