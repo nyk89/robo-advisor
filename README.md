@@ -1,14 +1,30 @@
 # robo-advisor
 
-Environment Setup
+## Prerequisites
 
-Create and activate a new Anaconda virtual environment:
+  + Anaconda 3.7
+  + Python 3.7
+  + Pip
 
+## Installation
+
+Fork this [remote repository](https://github.com/nyk89/robo-advisor) under your own control, then "clone" or download your remote copy onto your local computer.
+
+Then navigate there from the command line (subsequent commands assume you are running them from the local repository's root directory):
+
+```sh
+cd app/robo-advisor
+```
+
+Use Anaconda to create and activate a new virtual environment, perhaps called "stocks-env":
+
+```sh
 conda create -n stocks-env python=3.7 # (first time only)
-conda activate stocks-env
-From within the virtual environment, install the required packages specified in the "requirements.txt" file
+conda activate shopping-env
+```
+## Use
+Run the program by typing the following into your terminal:
+```sh
+python app/stocks.py
+```
 
-pip install -r requirements.txt
-From within the virtual environment, demonstrate your ability to run the Python script from the command-line:
-
-python app/robo_advisor.py
