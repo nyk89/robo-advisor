@@ -59,22 +59,22 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
         writer.writerow({
         "timestamp": date, 
         "open": daily_prices["1. open"], 
-        "high": daily_prices["2. high"], 
-        "low": daily_prices["3. low"], 
-        "close": daily_prices["4. close"], 
+        "high": daily_prices["2. high"],
+        "low": daily_prices["3. low"],
+        "close": daily_prices["4. close"],
         "volume": daily_prices["5. volume"]
     })
 
-if float(latest_close) <= recent_low:
+if float(latest_close) < float(recent_low):
     recommendation = "BUY IT WARREN"
     reason = "EQUITY SALE ON ISLE FIVE"
 
-if float(latest_close) >= recent_high:
-    recommendation = "SELL IT MR. BUFFET"
+if float(latest_close) > float(recent_high):
+    recommendation = "SELL IT MR. BUFFETT"
     reason = "UNPRECIDENTED HIGHS, CASH IN"
 
-if recent_low < float(latest_close) < recent_high:
-    recommendation = "HOLD IT MR. BUFFET"
+if float(recent_low) <= float(latest_close) <= float(recent_high):
+    recommendation = "HOLD IT MR. BUFFETT"
     reason = "NOTHING INTERESTING TO SEE HERE, KEEP HOLDING"
 
 print("-------------------------")
