@@ -30,7 +30,7 @@ From within the virtual environment, install the required packages specified in 
 pip install -r requirements.txt
 ```
 
-From within the virtual environment, install the plotly packages specified below:
+From within the virtual environment, install the plotly and pandas packages specified below:
 
 ```sh
 pip install plotly
@@ -44,4 +44,5 @@ Run the program by typing the following into your terminal:
 ```sh
 python app/stocks.py
 ```
+Type in a stock ticker for updated individual stock information and a graph plotting the daily highs over the last 100 days.
 
