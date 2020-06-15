@@ -23,6 +23,18 @@ Use Anaconda to create and activate a new virtual environment, perhaps called "s
 conda create -n stocks-env python=3.7 # (first time only)
 conda activate stocks-env
 ```
+
+From within the virtual environment, install the required packages specified in the "requirements.txt":
+
+```sh
+pip install -r requirements.txt
+```
+
+From within the virtual environment, install the plotly packages specified below:
+
+```sh
+pip install plotly
+```
 ## Use
 Run the program by typing the following into your terminal:
 ```sh
