@@ -30,13 +30,10 @@ From within the virtual environment, install the required packages specified in 
 pip install -r requirements.txt
 ```
 
-From within the virtual environment, install the plotly and pandas packages specified below:
+From within the virtual environment, install the plotly package specified below:
 
 ```sh
 pip install plotly
-```
-```sh
-pip install pandas
 ```
 
 ## Use
