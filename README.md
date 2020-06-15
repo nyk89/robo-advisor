@@ -1,4 +1,5 @@
 # robo-advisor
+This program will give advice to hold, sell, or buy stocks.
 
 ## Prerequisites
 
