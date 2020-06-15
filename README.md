@@ -35,6 +35,10 @@ From within the virtual environment, install the plotly packages specified below
 ```sh
 pip install plotly
 ```
+```sh
+pip install pandas
+```
+
 ## Use
 Run the program by typing the following into your terminal:
 ```sh
