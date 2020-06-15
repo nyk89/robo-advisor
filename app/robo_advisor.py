@@ -69,15 +69,15 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
         "volume": daily_prices["5. volume"]
     })
 
-if float(latest_close) <= float(recent_low):
+if float(latest_close) <= float(recent_low*1.1):
     recommendation = "BUY IT WARREN"
     reason = "EQUITY SALE ON ISLE FIVE"
 
-if float(latest_close) >= float(recent_high):
+if float(latest_close) >= float(recent_high*.8):
     recommendation = "SELL IT MR. BUFFETT"
-    reason = "UNPRECIDENTED HIGHS, CASH IN"
+    reason = "SKY HIGH, CASH IN"
 
-if float(recent_low) < float(latest_close) < float(recent_high):
+if float(recent_low*1.1) < float(latest_close) < float(recent_high*.8):
     recommendation = "HOLD IT MR. BUFFETT"
     reason = "NOTHING INTERESTING TO SEE HERE, KEEP HOLDING"
 
