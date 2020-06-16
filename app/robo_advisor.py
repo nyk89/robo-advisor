@@ -36,12 +36,15 @@ latest_close = tsd[latest_day]["4. close"]
 
 high_prices = []
 low_prices = []
+close_prices = []
 
 for date in dates:
     high_price = tsd[date]["2. high"]
     low_price = tsd[date]["3. low"]
+    close_price = tsd[date]["4. close"]
     high_prices.append(float(high_price))
     low_prices.append(float(low_price))
+    close_prices.append(float(close_price))
 
 recent_high = max(high_prices)
 recent_low = min(low_prices)
@@ -100,9 +103,9 @@ print("HAPPY INVESTING!")
 print("-------------------------")
 
 x = (dates)
-y = (high_prices)
+y = (close_prices)
 
 plotly.offline.plot({
     "data": [go.Scatter(x = x, y = y)],
-    "layout": go.Layout(title=f"Daily Highs for {symbol}")
+    "layout": go.Layout(title=f"Daily Close Prices for {symbol}")
 }, auto_open=True)
